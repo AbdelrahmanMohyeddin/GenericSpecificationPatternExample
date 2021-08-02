@@ -14,6 +14,17 @@ namespace SpecificationPattern
             {
                 query = query.Where(Spec.Criteria);
             }
+
+            if(Spec.OrderByAsc != null)
+            {
+                query = query.OrderBy(Spec.OrderByAsc);
+            }
+
+            if (Spec.OrderByDesc != null)
+            {
+                query = query.OrderByDescending(Spec.OrderByDesc);
+            }
+
             return query;
         }
     }

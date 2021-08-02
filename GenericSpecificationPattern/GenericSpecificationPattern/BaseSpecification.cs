@@ -16,5 +16,22 @@ namespace SpecificationPattern
         }
 
         public Expression<Func<T, bool>> Criteria { get; }
+
+
+        public Expression<Func<T, object>> OrderByAsc { get; private set; }
+
+        public Expression<Func<T, object>> OrderByDesc { get; private set; }
+
+
+        protected void AddOrderByAsc(Expression<Func<T,object>> OrderByAscExpression)
+        {
+            OrderByAsc = OrderByAscExpression;
+        }
+
+        protected void AddOrderByDesc(Expression<Func<T, object>> OrderByDescExpression)
+        {
+            OrderByDesc = OrderByDescExpression;
+        }
+
     }
 }
